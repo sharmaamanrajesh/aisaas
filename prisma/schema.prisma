@@ -1,0 +1,41 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Image {
+  id            Int       @id @default(autoincrement())
+  url           String // URL to the uploaded image
+  title         String
+  averageRating Float     @default(0)
+  ratings       Rating[]
+  comments      Comment[]
+}
+
+model Rating {
+  id      Int     @id @default(autoincrement())
+  value   Float
+  imageId Int
+  image   Image   @relation(fields: [imageId], references: [id])
+  ratedBy String? // Optional field to store rater's name or identifier
+
+  @@unique([imageId, ratedBy])
+}
+
+model Comment {
+  id       Int     @id @default(autoincrement())
+  content  String
+  imageId  Int
+  image    Image   @relation(fields: [imageId], references: [id])
+  postedBy String? // Optional field to store commenter's name or identifier
+}
