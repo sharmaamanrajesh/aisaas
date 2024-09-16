@@ -2,7 +2,7 @@ import React from 'react'
 
 const Upgrade = () => {
   return (
-    <div>Upgraded.</div>
+    <div>Upgraded</div>
   )
 }
 
