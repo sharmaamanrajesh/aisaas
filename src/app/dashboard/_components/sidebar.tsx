@@ -1,7 +1,7 @@
 'use client'
 import Auth from '@/components/auth'
 import { cn } from '@/lib/utils'
-import { CreditCard, History, MagnetIcon, Sparkles, WandSparkles } from 'lucide-react'
+import { CreditCard, History, MagnetIcon, Sparkles, SunIcon, WandSparkles } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import React from 'react'
@@ -26,6 +26,11 @@ const menuList = [
     name: 'Gemini',
     icon: MagnetIcon,
     path: '/dashboard/ai_models/gemini',
+  },
+  {
+    name: 'OpenAI',
+    icon: SunIcon,
+    path: '/dashboard/ai_models/openai',
   },
 ];
 

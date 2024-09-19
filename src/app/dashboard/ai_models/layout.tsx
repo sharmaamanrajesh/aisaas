@@ -49,7 +49,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         </div>
 
         {/* Conditionally render PromptBar only on the Gemini page */}
-        {pathname === '/dashboard/ai_models/gemini' && (
+        {pathname === '/dashboard/ai_models/gemini' || pathname === '/dashboard/ai_models/openai' && (
           <div className="w-full max-w-5xl mx-auto">
             {/* Constrain width to the main content area */}
             <PromptBar />
