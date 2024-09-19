@@ -67,3 +67,22 @@
     @apply bg-background text-foreground;
   }
 }
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-10px); /* Slight upward movement */
+  }
+  50% {
+    transform: translateY(5px); /* Bounce back down */
+  }
+  100% {
+    transform: translateY(0); /* Return to original position */
+  }
+}
+
+.bounce {
+  animation: bounce 0.6s ease-in-out; /* Apply the bounce animation */
+}
